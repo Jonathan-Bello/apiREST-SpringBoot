@@ -20,13 +20,18 @@ public class MonstruoController {
     @Autowired
     private MonstruoService service;
 
+    @GetMapping("all")
+	public String listCount() {
+		return "La cantidad de recursos en la base de datos es: " + service.listAll().size();
+	}
+
     @GetMapping()
     public List<Monstruo> list(){
         return service.listAll();
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Monstruo> get (@PathVariable Integer id){
+    public ResponseEntity<Monstruo> get(@PathVariable Integer id){
         Monstruo monstruo = service.get(id);
         return new ResponseEntity<Monstruo>(monstruo, HttpStatus.OK);
     }
