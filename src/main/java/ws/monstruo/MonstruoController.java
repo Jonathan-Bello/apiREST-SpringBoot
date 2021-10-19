@@ -20,7 +20,7 @@ public class MonstruoController {
     @Autowired
     private MonstruoService service;
 
-    @GetMapping("all")
+    @GetMapping("count")
 	public String listCount() {
 		return "La cantidad de recursos en la base de datos es: " + service.listAll().size();
 	}
